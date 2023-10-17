@@ -27,6 +27,9 @@ const PostUser = () => {
     .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
+      if(data.acknowledged){
+        alert("user create successfully")
+      }
     })
   }
   return (
