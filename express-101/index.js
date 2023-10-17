@@ -58,6 +58,25 @@ async function run() {
       res.send(result)
     })
 
+    // update single data
+
+    app.put("/users/:id",async(req,res)=>{
+      const id =req.params.id
+      const data=req.body
+      
+      const filter ={_id:new ObjectId(id)}
+      const options={upsert:true}
+      const updatedData={
+        $set:{
+          name:data.name,
+          email:data.email,
+          password:data.password,
+        }
+      }
+      const result=await userCollection.updateOne(filter,updatedData,options)
+      res.send(result)
+    })
+
     app.get("/users",async(req,res)=>{
       const result =await userCollection.find().toArray()
       console.log(result)

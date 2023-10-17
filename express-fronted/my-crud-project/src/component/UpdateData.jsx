@@ -20,6 +20,17 @@ const UpdateData = () => {
       password,
     }
     console.log(updateData)
+    fetch(`http://localhost:5000/users/${singleData._id}`,{
+      method:"PUT",
+     headers:{
+      "Content-Type":"application/json"
+     },
+     body:JSON.stringify(updateData)
+    })
+    .then((res)=>res.json())
+    .then((data)=>{
+      console.log(data)
+    })
 
   }
   return (
