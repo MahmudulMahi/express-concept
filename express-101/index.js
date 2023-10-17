@@ -49,6 +49,15 @@ async function run() {
       res.send(result)
     })
 
+    // get single data using id
+    app.get("/users/:id",async(req,res)=>{
+      const id =req.params.id
+      console.log("id",id)
+      const query ={_id:new ObjectId(id)}
+      const result =await userCollection.findOne(query)
+      res.send(result)
+    })
+
     app.get("/users",async(req,res)=>{
       const result =await userCollection.find().toArray()
       console.log(result)

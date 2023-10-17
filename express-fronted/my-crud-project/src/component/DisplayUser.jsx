@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const DisplayUser = () => {
@@ -34,6 +34,10 @@ const DisplayUser = () => {
       <h1>{user.name}</h1>
       <br />
       <button onClick={()=>handelDelete(user._id)} type="submit">Delete</button>
+
+      <Link to={`/users/${user._id}`}>
+      <button type="submit">Update</button>
+      </Link>
      </div>)
 
       }
