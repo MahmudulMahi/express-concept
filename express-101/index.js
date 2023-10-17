@@ -35,7 +35,9 @@ async function run() {
 
     app.post("/users",async(req,res)=>{
       const user =req.body
-      const result =await userCollection.insertOne(users)
+      const result =await userCollection.insertOne(user)
+      console.log(result)
+      res.send(result)
     })
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
