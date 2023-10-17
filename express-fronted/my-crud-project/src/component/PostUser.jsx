@@ -16,6 +16,12 @@ const PostUser = () => {
       password,
     }
     console.log(mydata)
+
+    fetch()
+    .then((res)=>res.json())
+    .then((data)=>{
+      console.log(data)
+    })
   }
   return (
     <div>
