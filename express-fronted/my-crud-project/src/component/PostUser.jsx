@@ -17,7 +17,13 @@ const PostUser = () => {
     }
     console.log(mydata)
 
-    fetch()
+    fetch("http://localhost:5000/users",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(mydata)
+    })
     .then((res)=>res.json())
     .then((data)=>{
       console.log(data)
